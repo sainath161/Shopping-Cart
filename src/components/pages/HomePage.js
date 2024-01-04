@@ -7,6 +7,7 @@ import '../../styles/Style.css';
 const HomePage = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
+  const cartItems = useSelector((state) => state.cart);
 
   const [addedToCart, setAddedToCart] = useState({});
 
@@ -34,10 +35,16 @@ const HomePage = () => {
   }, [dispatch]);
 
   const addToCart = (product) => {
-    dispatch({ type: 'ADD_TO_CART', payload: product });
+    // Check if the product is already in the cart
+    const isAlreadyAdded = cartItems.some((item) => item.id === product.id);
+
+    if (!isAlreadyAdded) {
+      dispatch({ type: 'ADD_TO_CART', payload: product });
+    }
+
     setAddedToCart((prevAddedToCart) => ({
       ...prevAddedToCart,
-      [product.id]: true,
+      [product.id]: isAlreadyAdded ? 'alreadyAdded' : true,
     }));
 
     // Clear the added status after 3 seconds
@@ -69,9 +76,13 @@ const HomePage = () => {
               <img src={product.image} alt={product.title} />
               <h3>{product.title}</h3>
               <p>${product.price}</p>
-              <button onClick={() => addToCart(product)}>Add to Cart</button>
+              <button onClick={() => addToCart(product)}>
+                {addedToCart[product.id] ? 'Added to Cart' : 'Add to Cart'}
+              </button>
               {addedToCart[product.id] && (
-                <p className="added-to-cart-text show">Added to Cart</p>
+                <p className={`added-to-cart-text ${addedToCart[product.id] === 'alreadyAdded' ? 'already-added' : ''} show`}>
+                  {addedToCart[product.id] === 'alreadyAdded' ? 'Already Added to Cart' : 'Added to Cart'}
+                </p>
               )}
             </div>
           ))
