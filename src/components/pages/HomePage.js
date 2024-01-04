@@ -77,7 +77,7 @@ const HomePage = () => {
               <h3>{product.title}</h3>
               <p>${product.price}</p>
               <button onClick={() => addToCart(product)}>
-                {addedToCart[product.id] ? 'Added to Cart' : 'Add to Cart'}
+                {addedToCart[product.id] ? 'Add to Cart' : 'Add to Cart'}
               </button>
               {addedToCart[product.id] && (
                 <p className={`added-to-cart-text ${addedToCart[product.id] === 'alreadyAdded' ? 'already-added' : ''} show`}>
