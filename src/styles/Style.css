@@ -244,6 +244,20 @@ body {
   width: 100%;
 }
 
+.popup-content button{
+  display: block;
+  text-align: center;
+  margin: 10px auto;
+  background-color: #ff3333;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  font-size: .8rem;
+  line-height: 1.4;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
 .price{
   float: right;
   font-weight: bold;
