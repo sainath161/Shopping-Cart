@@ -39,7 +39,7 @@ const CartPage = () => {
           ) : (
             cartItems.map((item) => (
               <div key={item.id} className="cart-item">
-                <img src={item.image} alt={item.title} />
+                <img src={item.images[0]} alt={item.title} />
                 <h3>{item.title}</h3>
                 <p>${item.price}</p>
                 <button className='removebtn' onClick={() => handleRemove(item.id)}>Remove from Cart</button>
