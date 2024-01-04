@@ -1,4 +1,4 @@
-/* Styles.css */
+/* src/styles/Styles.css */
 
 body {
   margin: 0;
@@ -384,6 +384,9 @@ li{
   .product-container div, .cart-item{
     width:28%;
   }
+  .page-heading{
+    margin-top: 10%;
+  }
 }
 
 @media screen and (max-width: 950px) {
@@ -409,6 +412,10 @@ li{
     margin-right: 0;
     margin-bottom: 10px;
   }
+
+  .page-heading{
+    margin-top: 25%;
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -427,6 +434,12 @@ li{
     }
 }
 
+@media screen and (max-width: 600px) {
+  .page-heading{
+    margin-top: 35%;
+  }
+}
+
 @media screen and (max-width: 530px) {
   
   .product-container div{
@@ -438,4 +451,25 @@ li{
   .cart-item {
     width: 100%;
     }
+    .page-heading{
+      margin-top: 50%;
+    }
+}
+
+@media screen and (max-width: 290px) {
+  .page-heading{
+    margin-top: 65%;
+  }
+}
+
+@media screen and (max-width: 220px) {
+  .page-heading{
+    margin-top: 95%;
+  }
+}
+
+@media screen and (max-width: 160px) {
+  .page-heading{
+    margin-top: 120%;
+  }
 }
